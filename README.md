@@ -16,6 +16,7 @@ I created this out of frustration back in 2013, because no existing apps support
 * Native lockscreen playback controls on older systems
 * Runs on Android 4.1+ (Jelly Bean), so basically everywhere
 * Audio is paused if headphones are unplugged
+* Dark theme (Holo)
 * No ads
 
 ### Not-Features
@@ -26,6 +27,7 @@ I created this out of frustration back in 2013, because no existing apps support
 * No repeat options
 * No sorting options
 * No casting support
+* No landscape mode support
 * No audio library scanning
 * No background services which drain battery life even while not being used
 
