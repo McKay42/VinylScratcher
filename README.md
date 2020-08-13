@@ -35,4 +35,12 @@ This is a preconfigured Android Studio (version 4.0.1) project, converted from t
 
 ## Screenshots
 
-TBD.
+![screenshot1](/screenshots/screenshot1.png?raw=true)
+---
+![screenshot2](/screenshots/screenshot2.png?raw=true)
+---
+![screenshot3](/screenshots/screenshot3.png?raw=true)
+---
+![screenshot4](/screenshots/screenshot4.png?raw=true)
+---
+![screenshot0](/screenshots/screenshot0.png?raw=true)
