@@ -1,4 +1,7 @@
 # Vinyl Scratcher
+
+**[DOWNLOAD > https://github.com/McKay42/VinylScratcher/releases](https://github.com/McKay42/VinylScratcher/releases)**
+
 A simple folder-based music player for Android. Does exactly what it says, nothing more and nothing less.
 
 I created this out of frustration back in 2013, because no existing apps supported what I want from a music player (being able to play audio files from folders in the filesystem is unheard of!). Even today, Google Play Music does not support playing from a folder.
