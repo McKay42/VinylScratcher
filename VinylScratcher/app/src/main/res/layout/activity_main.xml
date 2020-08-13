@@ -1,0 +1,193 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="#FF000000"
+	android:orientation="vertical"
+	tools:context=".MainActivity">
+
+	<LinearLayout
+		android:id="@+id/mainContainer"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:focusable="false"
+		android:orientation="vertical">
+
+		<ListView
+			android:id="@+id/song_list"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:layout_weight="2"
+			android:descendantFocusability="blocksDescendants"
+			android:divider="@color/file_line_color"
+			android:dividerHeight="1px"
+			android:scrollbarStyle="outsideOverlay" />
+
+		<RelativeLayout
+			android:id="@+id/seek_bar_container"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:focusable="false"
+			android:orientation="vertical">
+
+			<View
+				android:id="@+id/seek_bar_container_divider"
+				android:layout_width="fill_parent"
+				android:layout_height="2dp"
+				android:background="@color/playback_bar_line_color" />
+
+			<RelativeLayout
+				android:id="@+id/seek_bar_container_container"
+				android:layout_width="fill_parent"
+				android:layout_height="165dip"
+				android:layout_below="@id/seek_bar_container_divider"
+				android:layout_marginLeft="6dip"
+				android:layout_marginTop="8dip"
+				android:layout_marginRight="6dip"
+				android:layout_marginBottom="6dip"
+				android:background="@color/playback_bar_color_inner"
+				android:focusable="false"
+				android:orientation="horizontal">
+
+				<RelativeLayout
+					android:id="@+id/seek_bar_top_container"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:background="@color/transparent"
+					android:focusable="false"
+					android:orientation="horizontal">
+
+					<TextView
+						android:id="@+id/seek_bar_curtime"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:layout_gravity="center"
+						android:layout_marginLeft="5dip"
+						android:layout_marginRight="7dip"
+						android:focusable="false"
+						android:text="0:00"
+						android:textColor="#FFFFFFFF"
+						android:textSize="16sp"
+						android:textStyle="normal" />
+
+
+					<TextView
+						android:id="@+id/seek_bar_remtime"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_alignParentRight="true"
+						android:layout_centerVertical="true"
+						android:layout_gravity="center"
+						android:layout_marginLeft="7dip"
+						android:layout_marginRight="5dip"
+						android:focusable="false"
+						android:text="--.--"
+						android:textColor="#FFFFFFFF"
+						android:textSize="16sp"
+						android:textStyle="normal" />
+
+					<SeekBar
+						android:id="@+id/seek_bar"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_gravity="center"
+						android:layout_toLeftOf="@id/seek_bar_remtime"
+						android:layout_toRightOf="@id/seek_bar_curtime"
+						android:background="@color/transparent"
+						android:max="1000" />
+
+				</RelativeLayout>
+
+				<ImageButton
+					android:id="@+id/playButton"
+					android:layout_width="60dip"
+					android:layout_height="60dip"
+					android:layout_below="@id/seek_bar_top_container"
+					android:layout_centerHorizontal="true"
+					android:layout_marginLeft="8dip"
+					android:layout_marginTop="8dip"
+					android:layout_marginRight="8dip"
+					android:adjustViewBounds="true"
+					android:background="@drawable/playback_button_background"
+					android:clickable="true"
+					android:contentDescription="Play/Pause"
+					android:onClick="onPlayClicked"
+					android:src="@drawable/ic_media_play" />
+
+				<ImageButton
+					android:id="@+id/testButton3"
+					android:layout_width="60dip"
+					android:layout_height="60dip"
+					android:layout_below="@id/seek_bar_top_container"
+					android:layout_centerHorizontal="true"
+					android:layout_marginLeft="8dip"
+					android:layout_marginTop="8dip"
+					android:layout_marginRight="8dip"
+					android:layout_toRightOf="@id/playButton"
+					android:adjustViewBounds="true"
+					android:background="@drawable/playback_button_background"
+					android:clickable="true"
+					android:contentDescription="Next Song"
+					android:onClick="onNextSongClicked"
+					android:scaleType="centerInside"
+					android:src="@drawable/ic_media_next" />
+
+				<ImageButton
+					android:id="@+id/testButton1"
+					android:layout_width="60dip"
+					android:layout_height="60dip"
+					android:layout_below="@id/seek_bar_top_container"
+					android:layout_centerHorizontal="true"
+					android:layout_marginLeft="8dip"
+					android:layout_marginTop="8dip"
+					android:layout_marginRight="8dip"
+					android:layout_toLeftOf="@id/playButton"
+					android:adjustViewBounds="true"
+					android:background="@drawable/playback_button_background"
+					android:clickable="true"
+					android:contentDescription="Previous Song"
+					android:onClick="onPreviousSongClicked"
+					android:scaleType="centerInside"
+					android:src="@drawable/ic_media_previous" />
+
+				<Button
+					android:id="@+id/nowPlayingButton"
+					android:layout_width="50dip"
+					android:layout_height="50dip"
+					android:layout_below="@id/seek_bar_top_container"
+					android:layout_alignParentRight="true"
+					android:layout_marginTop="13dip"
+					android:layout_marginRight="15dip"
+					android:adjustViewBounds="true"
+					android:background="@drawable/playback_button_background"
+					android:clickable="true"
+					android:contentDescription="Now Playing"
+					android:onClick="onNowPlayingClicked"
+					android:text="Now"
+					android:textSize="14sp" />
+
+				<Button
+					android:id="@+id/homeButton"
+					android:layout_width="50dip"
+					android:layout_height="50dip"
+					android:layout_below="@id/seek_bar_top_container"
+					android:layout_alignParentLeft="true"
+					android:layout_marginLeft="15dip"
+					android:layout_marginTop="13dip"
+					android:adjustViewBounds="true"
+					android:background="@drawable/playback_button_background"
+					android:clickable="true"
+					android:contentDescription="Home"
+					android:onClick="onHomeClicked"
+					android:text="Home"
+					android:textSize="12sp" />
+
+			</RelativeLayout>
+
+		</RelativeLayout>
+
+	</LinearLayout>
+
+</LinearLayout>

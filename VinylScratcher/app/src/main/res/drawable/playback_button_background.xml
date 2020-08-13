@@ -1,0 +1,24 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<!-- pressed state -->
+	<item android:state_pressed="true">
+
+		<shape android:shape="oval">
+			<stroke android:width="1dip" android:color="@color/playback_button_selected_border_color" />
+			<!-- <solid android:color="@color/playback_button_selected_background_color" /> -->
+			<gradient android:angle="270" android:endColor="#34b7e8" android:startColor="#006282" />
+
+		</shape>
+
+	</item>
+
+	<!-- default state -->
+	<item android:state_pressed="false">
+
+		<shape android:shape="oval">
+			<stroke android:width="1dip" android:color="@color/playback_button_background_color" />
+		</shape>
+
+	</item>
+
+</selector>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+	<string name="app_name">Vinyl Scratcher</string>
+
+	<!-- Option menu items -->
+	<string name="menu_settings">Settings</string>
+	
+	<string name="action_shuffle">Shuffle</string>
+	<string name="action_end">End</string>
+
+	
+	<!-- Content descriptions -->
+	<string name="accessibility_play">Play</string>
+	<string name="accessibility_pause">Pause</string>
+	<string name="accessibility_next">Next</string>
+	<string name="accessibility_prev">Previous</string>
+	<string name="accessibility_shuffle">Shuffle</string>
+	<string name="accessibility_shuffle_all">Shuffle all</string>
+	<string name="accessibility_repeat">Repeat</string>
+	<string name="accessibility_repeat_all">Repeat all</string>
+	<string name="accessibility_repeat_one">Repeat one</string>
+
+</resources>

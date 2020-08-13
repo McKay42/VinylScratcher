@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:context="com.pgo.vinylscratcher.MainActivity" >
+	 
+	<!--
+	<item
+		android:id="@+id/action_end"
+		android:icon="@drawable/btn_kill"
+		android:orderInCategory="300"
+		android:showAsAction="always"
+		android:title="Kill App" />
+	-->
+
+	<item
+		android:id="@+id/action_nowplaying"
+		android:title="Now Playing"
+		android:orderInCategory="400"
+		android:showAsAction="never" />
+	<item
+		android:id="@+id/action_home"
+		android:title="Home"
+		android:orderInCategory="500"
+		android:showAsAction="never" />
+	<item
+		android:id="@+id/action_about"
+		android:title="About"
+		android:orderInCategory="600"
+		android:showAsAction="never" />
+
+</menu>
