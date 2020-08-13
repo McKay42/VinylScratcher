@@ -1,4 +1,7 @@
 # Vinyl Scratcher
+
+**[DOWNLOAD > https://github.com/McKay42/VinylScratcher/releases](https://github.com/McKay42/VinylScratcher/releases)**
+
 A simple folder-based music player for Android. Does exactly what it says, nothing more and nothing less.
 
 I created this out of frustration back in 2013, because no existing apps supported what I want from a music player (being able to play audio files from folders in the filesystem is unheard of!). Even today, Google Play Music does not support playing from a folder.
@@ -13,6 +16,7 @@ I created this out of frustration back in 2013, because no existing apps support
 * Native lockscreen playback controls on older systems
 * Runs on Android 4.1+ (Jelly Bean), so basically everywhere
 * Audio is paused if headphones are unplugged
+* Dark theme (Holo)
 * No ads
 
 ### Not-Features
@@ -23,6 +27,7 @@ I created this out of frustration back in 2013, because no existing apps support
 * No repeat options
 * No sorting options
 * No casting support
+* No landscape mode support
 * No audio library scanning
 * No background services which drain battery life even while not being used
 
@@ -36,6 +41,8 @@ This is a preconfigured Android Studio (version 4.0.1) project, converted from t
 ## Screenshots
 
 ![screenshot1](/screenshots/screenshot1.png?raw=true)
+---
+![screenshot5](/screenshots/screenshot5.png?raw=true)
 ---
 ![screenshot2](/screenshots/screenshot2.png?raw=true)
 ---
