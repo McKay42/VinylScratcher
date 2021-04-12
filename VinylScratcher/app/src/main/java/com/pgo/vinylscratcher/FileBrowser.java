@@ -45,6 +45,32 @@ public class FileBrowser
 	{
 		files.clear();
 
+		// HACKHACK: workaround because Android 10+ returns null listFiles() for "/storage/" (1)
+		// but, once we know the ID of the sd card, listFiles() works just fine again (e.g. "/storage/DEAD-BEEF/")
+		// so, we can use getExternalFilesDirs() to get the ID
+		ArrayList<String> storages = new ArrayList<String>();
+		try
+		{
+			final String storagePrefix = File.separator + "storage" + File.separator;
+			final String internalStoragePrefix = storagePrefix + "emulated";
+			final String internalStoragePostfix = "0" + File.separator;
+
+			final File[] externalFilesDirs = parent.getApplicationContext().getExternalFilesDirs(null);
+			for (File f : externalFilesDirs)
+			{
+				final String externalFilesDir = f.getAbsolutePath();
+				if (externalFilesDir.startsWith(storagePrefix))
+				{
+					String storage = externalFilesDir.substring(0, externalFilesDir.indexOf(File.separator, storagePrefix.length()) + 1);
+					if (storage.startsWith(internalStoragePrefix))
+						storage += internalStoragePostfix;
+
+					storages.add(storage);
+				}
+			}
+		}
+		catch (Exception e) {} // NOTE: ignore
+
 		File f = new File(path);
 
 		// NOTE: originally there was a check here which denied navigating outside of canRead() isDirectory(), but alas this produced too many false positives
@@ -57,6 +83,48 @@ public class FileBrowser
 		try
 		{
 			File[] dirs = f.listFiles();
+
+			// HACKHACK: workaround because Android 10+ returns null listFiles() for "/storage/" (2)
+			// inject storage dirs if at matching directory structure point
+			if (storages.size() > 0)
+			{
+				final String curPath = f.getAbsolutePath();
+				for (String storage : storages)
+				{
+					if (storage.startsWith(curPath) && !(storage.equals(curPath) || storage.equals(curPath + File.separator)))
+					{
+						if (dirs != null)
+						{
+							// NOTE: only add ourself if we are not already in the list
+							boolean alreadyInDirs = false;
+							for (File dr : dirs)
+							{
+								if (dr.getAbsolutePath().equals(storage))
+								{
+									alreadyInDirs = true;
+									break;
+								}
+							}
+
+							if (!alreadyInDirs)
+							{
+								File[] newDirs = new File[dirs.length + 1];
+								for (int i = 0; i < dirs.length; i++)
+								{
+									newDirs[i] = dirs[i];
+								}
+								newDirs[dirs.length] = new File(storage);
+								dirs = newDirs;
+							}
+						}
+						else
+						{
+							dirs = new File[1];
+							dirs[0] = new File(storage);
+						}
+					}
+				}
+			}
 
 			for (File curFile: dirs)
 			{

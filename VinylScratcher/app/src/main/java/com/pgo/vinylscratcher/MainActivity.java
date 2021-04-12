@@ -663,14 +663,16 @@ public class MainActivity extends Activity implements MusicServiceListener, OnSe
 			{
 				// version 0.1:
 				// - Original version from 2014
+				// version 0.2:
+				// - Fixed Android 10+ not listing SD card under /storage/
 				// - TODO: kill music service + notification if quitting or back-button-ing app while no music is playing. alternatively, only start music service when actually starting to play music
 				// - TODO: fix setSelectedItem and onTrackChanged bug which keeps controls not-playing while actually playing (after murdering activity via back button), always happens when selectedItem is non-null onResume
 
 				AlertDialog aboutDialog = new AlertDialog.Builder(new ContextThemeWrapper(this, android.R.style.Theme_Holo_Dialog)).create();
 				aboutDialog.setTitle("Vinyl Scratcher");
-				aboutDialog.setMessage("© PG 2014\n\nVersion 0.1\n\n");
+				aboutDialog.setMessage("© PG 2014\n\nVersion " + Config.VERSION + "\n\n");
 				aboutDialog.show();
-				TextView textView = (TextView) aboutDialog.findViewById(android.R.id.message);
+				TextView textView = (TextView)aboutDialog.findViewById(android.R.id.message);
 				textView.setTextSize(15);
 			}
 			break;
